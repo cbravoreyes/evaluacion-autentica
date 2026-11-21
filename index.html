@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guía de uso · Diseñar evaluaciones auténticas</title>
+<style>
+:root{font-family:"Segoe UI",system-ui,sans-serif;color:#292038;background:#faf8fc;line-height:1.65;--purple:#54247b;--border:#ded3e8}
+*{box-sizing:border-box}body{margin:0}a{color:var(--purple);text-underline-offset:3px}header{background:#30143f;color:#fff;padding:clamp(2rem,6vw,4.5rem) 1.2rem}header>div,main,nav>div,footer{max-width:65rem;margin:auto}header h1{font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.1;max-width:23ch;margin:.7rem 0 1.2rem}header p{max-width:68ch}.eyebrow{letter-spacing:.08em;font-size:.85rem}nav{background:white;border-bottom:1px solid var(--border);padding:.8rem 1.2rem}nav>div{display:flex;flex-wrap:wrap;gap:.5rem 1.3rem}main{padding:0 1.2rem}section{padding:2.1rem 0;border-bottom:1px solid var(--border);scroll-margin-top:1rem}h2{font-size:clamp(1.5rem,3vw,2rem);line-height:1.25;margin:0 0 1rem}h3{line-height:1.3;margin:0 0 .7rem}p{margin:.6rem 0 1rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.card{background:white;border:1px solid var(--border);padding:1.3rem;border-radius:.8rem}.flow{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;padding:1rem 0}.flow span{background:#eee4f6;border-radius:.5rem;padding:.5rem .8rem;font-weight:650}.flow b{color:#705480}.button,button{display:inline-block;font:inherit;font-weight:650;background:var(--purple);color:white;border:1px solid var(--purple);border-radius:.45rem;padding:.65rem 1rem;text-decoration:none;cursor:pointer}header .button{background:#f0e2fb;color:#30143f;border-color:#f0e2fb}.secondary{background:white;color:var(--purple)}.actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}textarea{display:block;width:100%;min-height:23rem;font:inherit;color:inherit;padding:1rem;border:1px solid #9279a5;border-radius:.5rem;margin:.6rem 0 1rem;resize:vertical}label{font-weight:700}summary{cursor:pointer;font-weight:700;color:var(--purple)}details{margin:1rem 0;background:white;border:1px solid var(--border);padding:1rem;border-radius:.6rem}li{margin:.4rem 0}ul,ol{padding-left:1.4rem}.note{background:#eee4f6;padding:1rem 1.2rem;border-left:4px solid var(--purple)}.check{display:flex;gap:.7rem;align-items:flex-start;margin:.8rem 0;font-weight:400}.check input{margin-top:.45rem;width:1.15rem;height:1.15rem;flex-shrink:0}#status,#copy-status{min-height:1.7rem}code{overflow-wrap:anywhere}.small{font-size:.92rem}footer{padding:1.5rem 1.2rem}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #c27c18;outline-offset:3px}.skip{position:absolute;top:0;left:1rem;transform:translateY(-120%);background:white;padding:.5rem}.skip:focus{transform:none}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:1rem}textarea{min-height:32rem}}
+@media print{nav,.actions,button,.skip{display:none}header{background:white;color:black;padding:1rem 0}.grid{display:block}.card{break-inside:avoid;margin:.7rem 0}main,footer{padding:0}textarea{height:26rem}details{display:block}}
+
+header{background:#bfe9fa;color:#12384d}
+header .button{background:#174e70;color:#fff;border-color:#174e70}
+header .eyebrow{color:#22536b}
+body{display:grid;grid-template-columns:15rem minmax(0,1fr)}
+header{grid-column:1/-1}
+nav{grid-column:1;grid-row:2;align-self:start;position:sticky;top:0;border-bottom:0;border-right:1px solid var(--border);padding:1.5rem 1rem;max-height:100vh;overflow:auto;background:#f0f8fc}
+nav>div{display:flex;flex-direction:column;gap:.9rem}
+nav h2{font-size:1.05rem;margin:0 0 .5rem;color:#174e70}
+main{grid-column:2;width:100%;min-width:0;padding:0 clamp(1.2rem,4vw,3rem)}
+footer{grid-column:1/-1;width:100%}
+.example p{max-width:78ch}
+@media(max-width:850px){body{display:block}nav{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--border)}nav>div{flex-direction:row;flex-wrap:wrap;gap:.5rem 1rem}nav h2{flex-basis:100%}main{padding:0 1.2rem}}
+@media print{body{display:block}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header><div><p class="eyebrow">GUÍA PARA DOCENTES · EDUCACIÓN SUPERIOR</p>
+<h1>Diseñar evaluaciones auténticas</h1>
+<p>Una skill que orienta a un asistente de IA en el diseño de evaluaciones contextualizadas, con evidencias del producto y del proceso, retroalimentación y rúbrica analítica.</p>
+<a class="button" href="#descarga">Descargar la skill</a>
+</div></header>
+<nav aria-label="Índice de la guía"><div><h2>Índice</h2><a href="#que-es">Qué es una skill</a><a href="#carga">Cómo cargarla en ChatGPT</a><a href="#funciona">Cómo funciona</a><a href="#datos">Qué preparar</a><a href="#ejemplo">Ejemplo de evaluación</a><a href="#resultado">Qué entrega</a><a href="#revision">Revisión docente</a><a href="#descarga">Descarga y uso</a></div></nav>
+<main id="contenido">
+<section id="que-es"><h2>Qué es una skill</h2>
+<p>Una skill es un conjunto organizado de instrucciones y recursos que orienta a la inteligencia artificial para desarrollar una familia de tareas. Define qué información necesita, qué pasos debe seguir, qué resultado debe entregar y qué criterios debe revisar. Puede reunir plantillas, ejemplos y referencias que permiten reutilizar un procedimiento y adaptarlo a nuevas situaciones.</p>
+<p>En esta skill, el procedimiento ayuda al docente a relacionar el aprendizaje esperado con la situación evaluativa, las evidencias, la retroalimentación y la rúbrica. El diálogo permite precisar las condiciones del grupo y revisar las propuestas durante el diseño.</p>
+<p class="small">Bravo Reyes, C. (2026, 30 de agosto). <em>Agonizan los prompts, nacen las skills (parte dos). Una skill para ayudar al profesor a generar una tarea evaluativa para sus estudiantes.</em> 366-días. <a href="https://366-dias.blogspot.com/2026/08/agonizan-los-prompts-nacen-las-skills_01055801026.html">Leer el artículo</a></p>
+</section>
+<section id="carga"><h2>Cómo cargarla en ChatGPT</h2>
+<p>El procedimiento descrito en el artículo consiste en adjuntar el paquete a una conversación y pedir a ChatGPT que trabaje con sus instrucciones. Puedes probarlo en una cuenta gratuita con la carga de archivos habilitada, dentro de los límites disponibles de tu cuenta.</p>
+<ol>
+<li><strong>Descarga el ZIP.</strong> Utiliza el botón de esta guía y conserva el archivo tal como se descarga.</li>
+<li><strong>Abre una conversación en ChatGPT.</strong> Pulsa el botón para adjuntar archivos, normalmente identificado con un signo + o un clip junto al cuadro de escritura.</li>
+<li><strong>Adjunta el ZIP.</strong> Selecciona <code>disenar-evaluaciones-autenticas.zip</code> y espera a que termine la carga.</li>
+<li><strong>Inicia el trabajo.</strong> Escribe «Trabajemos con esta skill. Lee SKILL.md y los recursos del paquete. Guíame en el diseño de una evaluación auténtica».</li>
+<li><strong>Responde y revisa.</strong> Aporta los datos de tu asignatura, examina las propuestas y confirma las decisiones que correspondan a tu contexto.</li>
+</ol>
+<p>Al retomar el mismo chat, puedes escribir «Continuemos con Diseñar evaluaciones auténticas» e indicar qué parte deseas revisar. En un chat nuevo, vuelve a adjuntar el paquete.</p>
+<details><summary>Si ChatGPT no logra leer el ZIP o se alcanza el límite de archivos</summary>
+<p>Extrae el ZIP y abre <code>SKILL.md</code> con un editor de texto. Copia su contenido en el chat y pide que lo utilice para guiar el diseño. Aporta también el contenido de las referencias y de la plantilla cuando se necesiten, o adjunta esos archivos cuando la cuenta vuelva a permitirlo.</p></details>
+<details><summary>Instalación desde el catálogo de skills, cuando esté disponible</summary>
+<p>En los espacios con esa función habilitada, la ayuda oficial indica la ruta <strong>Plugins → Skills → Create → Upload from your computer</strong>. La disponibilidad depende del plan y de la configuración del espacio. La carga del paquete en una conversación permite trabajar con sus instrucciones en ese chat.</p></details>
+<p class="small">OpenAI. (s. f.). <em>Uploading files and audio to ChatGPT.</em> <a href="https://help.openai.com/en/articles/8555545-uploading-files-and-audio-to-chatgpt">Consultar disponibilidad y límites de carga</a>. OpenAI. (s. f.). <em>Skills in ChatGPT.</em> <a href="https://help.openai.com/en/articles/20001066-skills-in-chatgpt">Consultar la instalación de skills</a>.</p>
+</section>
+<section id="funciona"><h2>Del aprendizaje esperado a una evaluación aplicable</h2>
+<p>La skill reúne instrucciones y recursos para que el asistente relacione el aprendizaje esperado con una situación significativa, las acciones del estudiante, las evidencias y los criterios de evaluación. Está diseñada para crear una evaluación completa o transformar una tarea que ya utilizas.</p>
+<div class="flow" aria-label="Secuencia de diseño"><span>Aprendizaje esperado</span><b aria-hidden="true">→</b><span>Situación y tarea</span><b aria-hidden="true">→</b><span>Evidencias</span><b aria-hidden="true">→</b><span>Criterios y revisión</span></div>
+<div class="grid"><article class="card"><h3>Diseño guiado</h3><p>Úsalo cuando necesites acompañamiento o todavía falten decisiones importantes. El asistente avanza mediante preguntas breves, recupera los datos que ya proporcionaste y ofrece opciones cuando ayudan a decidir.</p><p><strong>Solicitud de inicio</strong><br>Usa $disenar-evaluaciones-autenticas para guiarme en el diseño de una evaluación auténtica para mi asignatura.</p></article>
+<article class="card"><h3>Diseño directo</h3><p>Úsalo cuando ya tengas el objetivo o competencia, el grupo, las condiciones de trabajo y las reglas de IA. El asistente entrega una propuesta completa y señala las decisiones pendientes de confirmación.</p><p><strong>Solicitud de inicio</strong><br>Usa $disenar-evaluaciones-autenticas en modo directo con los datos que te proporciono a continuación.</p></article></div>
+<p class="small">La invocación con $ corresponde al nombre incluido en el paquete. Su disponibilidad depende de que el entorno cargue la skill.</p>
+</section>
+<section id="datos"><h2>Prepara la información de tu asignatura</h2>
+<div class="grid"><article class="card"><h3>Referente curricular</h3><p>Asignatura, unidad, contenido y destinatarios. Proporciona el objetivo o la competencia según el programa. Si necesitas formular el objetivo, la skill propone una acción observable para tu aprobación.</p></article>
+<article class="card"><h3>Condiciones de trabajo</h3><p>Cantidad de estudiantes, modalidad, participación individual o grupal, lugar, duración, recursos y conectividad. Añade horario, permisos o restricciones cuando cambien la organización.</p></article>
+<article class="card"><h3>Actividad y método</h3><p>Comparte la tarea actual o el desempeño previsto. Indica si trabajarás con casos, proyectos, métodos problémicos, investigación u otro método que determine las acciones.</p></article>
+<article class="card"><h3>IA y evaluación</h3><p>Precisa qué usos de IA se permiten, se limitan o se excluyen. Añade puntaje, ponderación y requisitos institucionales cuando estén definidos.</p></article></div>
+</section>
+<section id="ejemplo"><h2>Una retroalimentación que conduce a la revisión</h2>
+<div class="card example">
+<p><strong>Propósito.</strong> Diseñar un plan de retroalimentación formativa sustentado en evidencias de los borradores.</p>
+<p><strong>Tarea.</strong> En equipos de cinco, analicen el expediente del caso. Usen al menos dos fragmentos para priorizar una necesidad de mejora. Comparen dos alternativas y propongan un plan de 20 minutos para un grupo de 30 estudiantes. Incluyan un comentario dirigido a un borrador específico y el cambio que esperan observar en su segunda versión.</p>
+<p><strong>Etapas.</strong> En la primera clase presencial, analicen el caso y elaboren el borrador. En la segunda, intercámbienlo con otro equipo, revisen el plan y redacten la justificación individual. Las fechas figuran en el calendario de Moodle.</p>
+<p><strong>Entrega.</strong> Un integrante sube el plan grupal de hasta dos páginas y el registro de hasta una página, con la comparación, la decisión de revisión y la declaración de IA. Cada estudiante entrega su justificación de hasta 150 palabras o en audio de hasta 90 segundos y responde las tres preguntas de autoevaluación.</p>
+<p><strong>Inteligencia artificial.</strong> Su uso es opcional. Puede utilizarse para explorar alternativas y revisar la claridad del borrador grupal. El diagnóstico, la elección, el comentario y la justificación individual son de elaboración propia. Declaren el uso y expliquen cómo verificaron cualquier sugerencia que influyó en el plan.</p>
+<p><strong>Evaluación sobre 20 puntos.</strong> Diagnóstico y prioridad, 5. Viabilidad de la intervención, 4. Comentario de retroalimentación, 3. Comparación y revisión, 5. Justificación individual, 3.</p>
+</div></section>
+<section id="resultado"><h2>Qué recibirás del asistente</h2>
+<div class="grid"><article class="card"><h3>Diseño y consigna</h3><p>Datos generales, contexto, organización del grupo, alineación curricular, método, aprendizaje esperado, justificación de la autenticidad y consigna para el estudiante.</p></article>
+<article class="card"><h3>Secuencia y evidencias</h3><p>Etapas, tiempos, retroalimentación, producto final y evidencias seleccionadas del proceso. En actividades grupales, una forma proporcionada de observar el aprendizaje individual.</p></article>
+<article class="card"><h3>Criterios y uso de IA</h3><p>Reglas de IA, declaración de uso, rúbrica analítica con criterios observables y ponderaciones que sumen 100 %, autoevaluación y lista de comprobación docente.</p></article>
+<article class="card"><h3>Aplicación en el curso</h3><p>Alternativas de accesibilidad y versión breve para Moodle con la tarea, etapas, organización, entregables, reglas de IA y criterios centrales.</p></article></div>
+<details><summary>Cómo considera el proceso de aprendizaje</summary><p>Según la actividad, la skill puede proponer evidencias de búsqueda, análisis, decisiones y revisión. Selecciona registros que permitan comprender el aprendizaje, como una fuente justificada, un cambio comentado o la verificación de una afirmación de la IA.</p><p>La extensión del historial de conversación y la cantidad de prompts carecen de valor como criterios de calidad por sí mismas. La selección debe permitir revisar decisiones pertinentes.</p></details>
+</section>
+<section id="revision"><h2>Revisa la propuesta antes de aplicarla</h2><p>Marca cada condición después de revisar la evaluación producida. Esta comprobación es una ayuda para tu revisión profesional.</p>
+<div class="card">
+<label class="check"><input type="checkbox">La tarea permite observar el objetivo o competencia de mi programa.</label>
+<label class="check"><input type="checkbox">El caso tiene propósito, destinatario y decisiones vinculadas con el aprendizaje.</label>
+<label class="check"><input type="checkbox">El tiempo, los recursos y la organización son viables para mi grupo.</label>
+<label class="check"><input type="checkbox">Cada criterio se relaciona con una evidencia y las ponderaciones suman 100 %.</label>
+<label class="check"><input type="checkbox">Las reglas de IA, la privacidad y las condiciones de acceso están claras.</label>
+<label class="check"><input type="checkbox">La retroalimentación y las evidencias individuales son proporcionadas a la actividad.</label>
+<p id="status" role="status"></p></div>
+<p>La persona docente revisa la exactitud disciplinar, la alineación y las condiciones institucionales, y conserva las decisiones de calificación, autoría y adaptaciones. El alcance del paquete es el diseño completo de evaluaciones auténticas para educación superior.</p>
+</section>
+<section id="descarga"><h2>Descarga la skill y sus recursos</h2>
+<p>El ZIP original contiene el archivo <code>SKILL.md</code>, cuatro guías de referencia, una plantilla de evaluación, la configuración del agente y sus iconos. El botón permite descargarlo desde este mismo HTML, incluso sin conexión.</p>
+<a id="download-skill" class="button" href="./disenar-evaluaciones-autenticas.zip" download="disenar-evaluaciones-autenticas.zip">Descargar skill (.zip)</a>
+<p class="small">Paquete original proporcionado por PhD Carlos Bravo Reyes · 20 KB</p>
+<p>Para comenzar, sigue los pasos del apartado <a href="#carga">Cómo cargarla en ChatGPT</a>.</p>
+
+<details><summary>Origen de esta guía</summary><p>El contenido se elaboró a partir de <code>SKILL.md</code>, la plantilla de evaluación y las cuatro referencias incluidas en el ZIP facilitado. El ejemplo de retroalimentación fue proporcionado por el autor para esta guía. El archivo descargable conserva el paquete original.</p></details>
+</section>
+</main>
+<footer>© 2026 PhD Carlos Bravo Reyes</footer>
+<script>
+const checks = [...document.querySelectorAll('.check input')];
+function updateChecks(){
+ const total = checks.filter(input=>input.checked).length;
+ document.getElementById('status').textContent = total + ' de ' + checks.length + ' condiciones revisadas.';
+}
+checks.forEach(input=>input.addEventListener('change',updateChecks));
+updateChecks();
+</script>
+</body></html>
