@@ -1,2 +1,2 @@
 # evaluacion-autentica
-Skilla para crear evaluaciones con IA
+Skill para crear evaluaciones con IA
